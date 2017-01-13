@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="去400吧，比卡丘" id="btn1">
+<input type="button" value="去800吧，比卡丘" id="btn2">
+<div id="box"></div>
+
+
+<script src="./libs/animate.js"></script>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var box = document.getElementById("box");
+    var timer = null;
+    btn1.onclick = function () {
+
+        //调用了多次animate，每次调用的时候，就把上一个定时器给清除了
+        animate(box, {
+            "left":400
+        }, function () {
+            //alert("哈哈哈哈,动画执行完了");
+            animate(box, {"top":400}, function () {
+                //alert("哈哈，动画执行完了");
+                animate(box, {
+                    "width":200,
+                    "height":200
+                })
+            });
+        });
+    }
+    btn2.onclick = function () {
+        animate(box, 800);
+
+    }
+
+
+
+</script>
+</body>
+</html>

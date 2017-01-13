@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            padding: 10px;
+            border: 10px solid #000;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+</div>
+
+<script>
+    var box = document.getElementById("box");
+
+    //offsetHeight 获取box内的真实的高度 包括padding border
+    console.log(box.offsetHeight);
+
+    //1. 返回的值也是数值类型
+    //2. 获取的是内容的高度,会包含padding
+    //scrollHeight 获取的是box里面的内容，与盒子的大小无关
+    console.log(box.scrollHeight);
+</script>
+
+</body>
+</html>

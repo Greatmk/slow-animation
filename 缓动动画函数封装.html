@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="去400吧，皮卡牛牛" id="btn1">
+<input type="button" value="去800吧，皮卡牛牛" id="btn2">
+<div id="box"></div>
+
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var box = document.getElementById("box");
+    var timer = null;
+    btn1.onclick = function () {
+
+        animate(box, 400);
+    }
+
+    function animate(obj, target) {
+        if (obj.timer) {
+            clearInterval(obj.timer);
+        }
+        obj.timer = setInterval(function () {
+            //offsetLeft获取的时候，不会获取小数，对于小数是四舍五入的。
+            var leader = obj.offsetLeft;
+            var step = (target - leader) / 10;
+
+            //如果往回跑的时候，step是负值,-0.9 求天花板就变成-0，希望是-1
+//            if(step > 0) {
+//                step = Math.ceil(step);
+//            }else {
+//                step = Math.floor(step);
+//            }
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+            leader = leader + step;
+            obj.style.left = leader + "px";
+            if (leader == target) {
+                clearInterval(obj.timer);
+            }
+            //console.log("target:" + target + " leader:" + leader + " step:" + step);
+        }, 15);
+    }
+
+    btn2.onclick = function () {
+        animate(box, 800);
+    }
+</script>
+</body>
+</html>

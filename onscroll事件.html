@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            padding: 10px;
+            margin: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+    天王盖地虎，小鸡炖蘑菇
+</div>
+
+<script>
+    var box = document.getElementById("box");
+
+    //on scroll:滚动的时候
+    //onscroll事件，滚动一像素就会触发onscroll事件
+    box.onscroll = function () {
+        //scrollTop盒子被卷去头部的高度
+        console.log(box.scrollTop);
+    }
+</script>
+
+</body>
+</html>

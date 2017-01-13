@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width:100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="去吧，皮卡牛牛" id="btn">
+<div id="box"></div>
+
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var timer = null;
+    btn.onclick = function () {
+        if(timer) {
+            clearInterval(timer);
+        }
+        timer = setInterval(function () {
+            var target = 400;
+            //offsetLeft获取的时候，不会获取小数，对于小数是四舍五入的。
+            var leader = box.offsetLeft;
+            var step = (target - leader)/10;
+            step = Math.ceil(step);
+            leader = leader  + step;
+            box.style.left = leader + "px";
+            if(leader == target) {
+                clearInterval(timer);
+            }
+            console.log("target:"+target+" leader:"+leader + " step:"+step);
+        }, 15);
+    }
+</script>
+</body>
+</html>
